@@ -54,4 +54,8 @@ router.post('/', function(req, res) {
     });
 });
 
+router.put('/', function(req, res) {
+
+});
+
 module.exports = router;
