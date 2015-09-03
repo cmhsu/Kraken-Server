@@ -2,7 +2,8 @@
 var mongoose = require( 'mongoose' );
 
 // Get the connection string 
-var dbConnection = process.env.DB || ''
+var dbConnection = process.env.DB || 'mongodb://localhost/wazkraken';
+
 
 // Create the database connection 
 var db = mongoose.connect(dbConnection);
