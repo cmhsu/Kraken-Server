@@ -6,24 +6,36 @@ var VenueSchema = new mongoose.Schema({
     required: true
   },
   attendees: {
-    type: Number,
-    default: 0
+    type: Object,
+    default: {}
   },
-  ratings: [{
-    type: Number
-  }],
+  ratings: {
+    type: Object,
+    default: {}
+  },
   description: {
     type: String
   },
   address: {
     type: String
   },
-  coordinates: {
-    type: String
+  latitude: {
+    type: Number,
+    required: true
+  },
+  longitude: {
+    type: Number,
+    required: true
   },
   comments: [{
     type : mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'
+    ref: 'Comment',
+    default: []
+  }],
+  media: [{
+    type : mongoose.Schema.Types.ObjectId,
+    ref: 'Medium',
+    default: []
   }],
   creator: {
     type: mongoose.Schema.Types.ObjectId,
@@ -34,7 +46,8 @@ var VenueSchema = new mongoose.Schema({
     type: Date,
     required: true
   }
-});
+},
+{minimize: false});
 
 var Venue = mongoose.model('Venue', VenueSchema);
 
