@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
-var CommentSchema = new mongoose.Schema({
+var MediumSchema = new mongoose.Schema({
+  path: {
+    type: String,
+    required: true
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  },
-  content: {
-    type: String
   },
   venue: {
     type : mongoose.Schema.Types.ObjectId,
@@ -23,18 +24,12 @@ var CommentSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  flags: [{
+  mimetype: {
     type: String,
-    default: []
-  }],
-  color: {
-    type: String
-  },
-  icon: {
-    type: String
+    default: 'image/jpeg'
   }
-}, {minimize: false});
+});
 
-var Comment = mongoose.model('Comment', CommentSchema);
+var Medium = mongoose.model('Medium', MediumSchema);
 
-module.exports = Comment;
+module.exports = Medium;
