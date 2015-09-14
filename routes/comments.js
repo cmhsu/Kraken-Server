@@ -73,7 +73,6 @@ router.post('/', function(req, res) {
     });
 });
 
-
 router.post('/flag/:id', function(req, res) {
   var comment_id = req.params.id;
   if (req.body.shouldDelete === false) {

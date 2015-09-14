@@ -4,9 +4,7 @@ var mongoose = require( 'mongoose' );
 if (!process.env.production) {
   var config = require('../config');
 }
-// Get the connection string 
-
-var dbConnection = process.env.DB || 'mongodb://localhost/wazkraken';
+// Get the connection string
 
 var dbURI = process.env.DB_URI || config.dbURI;
 
