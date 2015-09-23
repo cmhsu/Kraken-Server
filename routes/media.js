@@ -46,9 +46,6 @@ router.get('/:id', function (req, res) {
 
 var storage = multer.memoryStorage(); // Stores uploaded files in memory/buffer
 router.post('/', multer({ storage: storage }).single('file'), function (req, res, next) {
-
-  
-
   // Generate random filename
   crypto.pseudoRandomBytes(8, function (err, raw) {
     if (raw && req.file) {
